@@ -31,9 +31,9 @@ class TodoList extends Component {
 
     render () {
         const list = this.state.list.map(x=>new List(x))
-        return [`
-            <div>{{1}}</div>
-        `, list]
+        return Weakact.render`
+            <div>${list}</div>
+        `
     }
 }
 

@@ -1,4 +1,4 @@
-import {Beact, Component} from '../lib/index'
+import {Weakact, Component} from '../lib/index'
 
 export default class List extends Component {
     constructor(props) {
@@ -14,8 +14,8 @@ export default class List extends Component {
         })
     }
     render() {
-        return [`
+        return Weakact.render`
             <li onClick="this.complete" style="color: ${this.state.status ? 'red' : 'black'}">${this.state.content} </li>
-        `]
+        `
     }
 }
