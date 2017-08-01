@@ -13,19 +13,18 @@ class TodoList extends Component {
                 status: false
             }]
         }
-        setTimeout(()=> {
-            this.addList({
-                content: '两秒后自动添加这一条',
-                status: false
-            })
-        },2000)
     }
 
-    addList(obj) {
+    addList(content) {
         this.setState({
-            list: [...this.state.list, ...[obj]]
+            list: [...this.state.list, ...[{
+                content: content,
+                status:false
+            }]]
         })
     }
+
+
 
     render () {
         const list = this.state.list.map((x,i)=>new List({
@@ -36,8 +35,13 @@ class TodoList extends Component {
             },
             item: x
         }))
+        var value = '';
         return Weakact.render`
-            <div>${list}</div>
+            <div>
+                <input onchange=${(e)=>value=e.target.value} />
+                <button onclick=${()=>{this.addList(value)}} >添加</button>
+                <div>${list}</div>
+            </div>
         `
     }
 }
