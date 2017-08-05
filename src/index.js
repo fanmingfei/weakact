@@ -35,7 +35,7 @@ class TodoList extends Component {
             },
             item: x
         }))
-        var value = '';
+        var value = ''
         return Weakact.render`
             <div>
                 <input onchange=${(e)=>value=e.target.value} />
